@@ -1,36 +1,56 @@
-# React + Vite
+# OpenCSTL — Documentation Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+OpenCSTL 문서 사이트입니다. Python **FastAPI** + **Jinja2** 템플릿으로 서빙합니다.
+스타일은 사전 빌드된 Tailwind CSS(`static/app.css`)를 그대로 사용하므로
+Node.js / npm / Vite 빌드 단계가 필요 없습니다.
 
-Currently, two official plugins are available:
+## 구동 방법
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. 가상환경 생성 및 활성화 (최초 1회)
 
-## React Compiler
+   ```powershell
+   python -m venv .venv
+   .venv\Scripts\Activate.ps1
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+   macOS / Linux:
 
-## Expanding the ESLint configuration
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. 의존성 설치
 
+   ```bash
+   pip install -r requirements.txt
+   ```
 
+3. 개발 서버 실행
 
+   ```bash
+   python main.py
+   ```
 
+   또는 직접 uvicorn 호출:
 
-● Vite + React 프로젝트입니다. 구동 방법:
+   ```bash
+   uvicorn main:app --reload --host 127.0.0.1 --port 8000
+   ```
 
-  1. 의존성 설치 (최초 1회)
-  npm install
+   브라우저에서 <http://127.0.0.1:8000> 접속.
 
-  2. 개발 서버 실행
-  npm run dev
-    실행 후 터미널에 표시되는 URL(보통 http://localhost:5173)을 브라우저에서 엽니다.
+## 프로젝트 구조
 
-  기타 명령어
-  - npm run build — 프로덕션 빌드 (dist/ 생성)
-  - npm run preview — 빌드 결과 미리보기
-  - npm run lint — ESLint 검사
-
-  node_modules/가 아직 없는 것으로 보이니 npm install부터 실행하세요.
+```
+.
+├── main.py              # FastAPI 앱 (라우트 + 페이지 데이터)
+├── templates/
+│   └── index.html       # Jinja2 템플릿
+├── static/
+│   ├── app.css          # Tailwind 빌드 결과물
+│   ├── favicon.svg
+│   ├── icons.svg
+│   └── hero.png
+└── requirements.txt
+```
