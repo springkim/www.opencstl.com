@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OpenCSTL — Documentation</title>
     <meta name="description" content="OpenCSTL: C++ STL containers, in pure C. Single-header, header-only library." />
-    <link rel="stylesheet" href="/static/app.css" />
-    <style>
-      :root {
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
         --color-brand-50: #f5f3ff;
         --color-brand-100: #ede9fe;
         --color-brand-200: #ddd6fe;
@@ -19,7 +19,24 @@
         --color-brand-700: #6d28d9;
         --color-brand-800: #5b21b6;
         --color-brand-900: #4c1d95;
+        --color-ink: #0f0a1f;
+        --font-display: "Inter", "Segoe UI", system-ui, sans-serif;
+        --font-mono: ui-monospace, "JetBrains Mono", Consolas, monospace;
       }
+    </style>
+    <style>
+      html, body, #root { height: 100%; }
+      body {
+        margin: 0;
+        font-family: var(--font-display);
+        background: #efeaff;
+        color: var(--color-ink);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      * { box-sizing: border-box; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { scrollbar-width: none; }
     </style>
   </head>
   <body>

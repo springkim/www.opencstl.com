@@ -1,8 +1,9 @@
 # OpenCSTL — Documentation Web App
 
 OpenCSTL 문서 사이트입니다. Python **FastAPI** + **Jinja2** 템플릿으로 서빙합니다.
-스타일은 사전 빌드된 Tailwind CSS(`static/app.css`)를 그대로 사용하므로
-Node.js / npm / Vite 빌드 단계가 필요 없습니다.
+Tailwind는 공식 v4 브라우저 런타임(`@tailwindcss/browser`)을 CDN으로 로드하여
+원본 디자인(`@theme`의 `brand-*` 컬러 토큰 포함)을 그대로 재현합니다.
+Node.js / npm / Vite 빌드 단계가 없습니다.
 
 ## 구동 방법
 
@@ -48,7 +49,6 @@ Node.js / npm / Vite 빌드 단계가 필요 없습니다.
 ├── templates/
 │   └── index.html       # Jinja2 템플릿
 ├── static/
-│   ├── app.css          # Tailwind 빌드 결과물
 │   ├── favicon.svg
 │   ├── icons.svg
 │   └── hero.png
